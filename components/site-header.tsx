@@ -3,20 +3,20 @@ import Link from 'next/link';
 import { siteConfig } from '@/config/site';
 import { cn } from '@/lib/utils';
 import { buttonVariants } from '@/components/ui/button';
-// import { ConnectButton } from '@/components/connect-button'
+import { ConnectButton } from '@/components/connect-button';
 import { Icons } from '@/components/icons';
-// import { MainNav } from '@/components/main-nav';
-// import { MobileNav } from '@/components/mobile-nav';
-// import { ModeToggle } from '@/components/mode-toggle';
+import { MainNav } from '@/components/main-nav';
+import { MobileNav } from '@/components/mobile-nav';
+import { ModeToggle } from '@/components/mode-toggle';
 
 export function SiteHeader() {
   return (
     <header className="supports-backdrop-blur:bg-background/60 sticky top-0 z-40 w-full border-b bg-background/95 backdrop-blur">
       <div className="container flex h-14 items-center">
-        {/* <MainNav />
-        <MobileNav /> */}
+        <MainNav />
+        <MobileNav />
         <div className="flex flex-1 items-center justify-end space-x-2 sm:space-x-4">
-          {/* <ConnectButton /> */}
+          <ConnectButton />
           <nav className="flex items-center space-x-1">
             <Link
               href={siteConfig.links.github}
@@ -26,13 +26,12 @@ export function SiteHeader() {
               <div
                 className={cn(
                   buttonVariants({
-                    size: 'sm',
                     variant: 'ghost',
                   }),
                   'w-9 px-0'
                 )}
               >
-                <Icons.gitHub className="h-5 w-5" />
+                <Icons.gitHub className="size-5" />
                 <span className="sr-only">GitHub</span>
               </div>
             </Link>
@@ -40,17 +39,16 @@ export function SiteHeader() {
               <div
                 className={cn(
                   buttonVariants({
-                    size: 'sm',
                     variant: 'ghost',
                   }),
                   'w-9 px-0'
                 )}
               >
-                <Icons.x className="h-5 w-5 fill-current" />
+                <Icons.x className="size-5 fill-current" />
                 <span className="sr-only">X</span>
               </div>
             </Link>
-            {/* <ModeToggle /> */}
+            <ModeToggle />
           </nav>
         </div>
       </div>
