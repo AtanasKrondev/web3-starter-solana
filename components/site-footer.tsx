@@ -17,6 +17,15 @@ export function SiteFooter() {
             >
               hackbg
             </a>
+            . Inspired by{' '}
+            <a
+              href="https://web3-starter-hackbg.vercel.app/"
+              target="_blank"
+              rel="noreferrer"
+              className={cn(buttonVariants({ variant: 'link' }), 'p-0')}
+            >
+              web3 starter
+            </a>
             . The source code is available on{' '}
             <a
               href={siteConfig.links.github}
