@@ -25,9 +25,12 @@ import {
   X,
   type LucideIcon,
   ToyBrick,
-} from 'lucide-react'
+  LogOut,
+  CopyIcon,
+  Wallet,
+} from 'lucide-react';
 
-export type Icon = LucideIcon
+export type Icon = LucideIcon;
 
 export const Icons = {
   logo: ToyBrick,
@@ -67,4 +70,6 @@ export const Icons = {
       ></path>
     </svg>
   ),
-}
+  logout: LogOut,
+  wallet: Wallet,
+};
