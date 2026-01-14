@@ -12,6 +12,7 @@ import {
   ItemMedia,
   ItemTitle,
 } from '@/components/ui/item';
+import { Icons } from '@/components/icons';
 
 export default function Home() {
   return (
@@ -139,6 +140,17 @@ export default function Home() {
               <ItemDescription>
                 Interact with the Solana blockchain.
               </ItemDescription>
+            </ItemContent>
+          </Item>
+          <Item variant="outline">
+            <ItemMedia>
+              <Icons.wallet className="size-12" />
+            </ItemMedia>
+            <ItemHeader className="font-bold text-[16px]">
+              Solana/wallet-adapter
+            </ItemHeader>
+            <ItemContent>
+              <ItemDescription>Wallet adapter for Solana dApps</ItemDescription>
             </ItemContent>
           </Item>
         </div>
