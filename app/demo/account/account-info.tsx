@@ -30,12 +30,10 @@ export function AccountInfo() {
   const publicKey = wallet.publicKey ?? null;
 
   const [status, setStatus] = useState<string | null>(null);
-
-  // Lookup arbitrary wallet address balance
   const [lookupInput, setLookupInput] = useState('');
   const [lookupKey, setLookupKey] = useState<PublicKey | null>(null);
   const [lookupError, setLookupError] = useState<string | null>(null);
-  // Custom message to sign
+
   const [messageInput, setMessageInput] = useState('');
 
   const {
@@ -104,22 +102,6 @@ export function AccountInfo() {
     }
   );
 
-  const {
-    data: signatures,
-    error: signaturesError,
-    isLoading: signaturesLoading,
-  } = useSWR(
-    connection && publicKey
-      ? ['signatures', connection.rpcEndpoint, publicKey.toBase58()]
-      : null,
-    async () => (publicKey ? fetchRecentSignatures(connection, publicKey) : []),
-    {
-      refreshInterval: 10000,
-      dedupingInterval: 5000,
-      revalidateOnFocus: true,
-    }
-  );
-
   const handleAirdrop = async () => {
     setStatus(null);
     if (!connection || !publicKey) {
@@ -128,7 +110,6 @@ export function AccountInfo() {
     }
 
     try {
-      // Try requesting a small airdrop (1 SOL). This may fail on mainnet.
       const sig = await connection.requestAirdrop(publicKey, LAMPORTS_PER_SOL);
       setStatus('Airdrop requested — awaiting confirmation...');
       const latestBlockhash = await connection.getLatestBlockhash();
@@ -174,14 +155,7 @@ export function AccountInfo() {
   };
 
   return (
-    <div className="space-y-4">
-      <div>
-        <h2 className="text-lg font-semibold">Account</h2>
-        <div className="text-sm text-muted-foreground">
-          Interact with your connected wallet and view account details.
-        </div>
-      </div>
-
+    <div className="space-y-6">
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div className="space-y-2">
           <h3 className="text-md font-semibold">Wallet</h3>
