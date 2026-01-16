@@ -26,7 +26,6 @@ import {
   type LucideIcon,
   ToyBrick,
   LogOut,
-  CopyIcon,
   Wallet,
 } from 'lucide-react';
 

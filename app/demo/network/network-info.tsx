@@ -18,6 +18,7 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
 } from '@/components/ui/dropdown-menu';
+import { DataDisplay } from '@/components/data-display';
 
 const fetchSlot = async (connection: Connection) => {
   return connection.getSlot();
@@ -43,39 +44,6 @@ const fetchSlotLeader = async (connection: Connection) => {
   const slot = await connection.getSlot();
   return connection.getSlotLeader({ minContextSlot: slot });
 };
-
-function DataDisplay({
-  title,
-  data,
-  error,
-  loading,
-}: {
-  title: string;
-  data: unknown;
-  error: unknown;
-  loading: boolean;
-}) {
-  return (
-    <Item variant="outline">
-      <ItemHeader className="font-bold text-lg">{title}</ItemHeader>
-      {loading ? (
-        <Skeleton className="h-6 w-64" />
-      ) : error ? (
-        <div className="text-destructive text-sm">
-          Error: {error instanceof Error ? error.message : 'Failed to fetch'}
-        </div>
-      ) : (
-        <ItemContent>
-          <code className="text-sm font-mono bg-muted p-2 rounded">
-            <pre className="whitespace-pre-wrap break-all">
-              {JSON.stringify(data, null, 2)}
-            </pre>
-          </code>
-        </ItemContent>
-      )}
-    </Item>
-  );
-}
 
 export function NetworkInfo() {
   const { connection } = useConnection();

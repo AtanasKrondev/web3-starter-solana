@@ -5,6 +5,7 @@ import useSWR from 'swr';
 import { Connection, PublicKey, LAMPORTS_PER_SOL } from '@solana/web3.js';
 import { useConnection, useWallet } from '@solana/wallet-adapter-react';
 import { Skeleton } from '@/components/ui/skeleton';
+import { CopyButton } from '@/components/copy-button';
 
 const fetchBalance = async (connection: Connection, publicKey: PublicKey) => {
   return connection.getBalance(publicKey);
@@ -286,9 +287,15 @@ export function AccountInfo() {
                   'Failed to fetch account info'}
               </div>
             ) : (
-              <pre className="text-sm font-mono bg-muted p-2 rounded whitespace-pre-wrap break-all">
-                {JSON.stringify(accountInfo, null, 2)}
-              </pre>
+              <div className="relative">
+                <CopyButton
+                  text={JSON.stringify(accountInfo, null, 2)}
+                  className="absolute top-2 right-2 z-10"
+                />
+                <pre className="text-sm font-mono bg-muted p-2 rounded whitespace-pre-wrap break-all">
+                  {JSON.stringify(accountInfo, null, 2)}
+                </pre>
+              </div>
             )}
           </div>
         </div>
