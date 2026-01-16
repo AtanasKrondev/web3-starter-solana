@@ -10,8 +10,8 @@ export function DataDisplay({
 }: {
   title: string;
   data: unknown;
-  error: unknown;
-  loading: boolean;
+  error?: unknown;
+  loading?: boolean;
 }) {
   return (
     <Item variant="outline">
@@ -26,11 +26,13 @@ export function DataDisplay({
         <ItemContent>
           <div className="relative">
             <CopyButton
-              text={JSON.stringify(data, null, 2)}
+              text={
+                typeof data === 'string' ? data : JSON.stringify(data, null, 2)
+              }
               className="absolute top-1 right-1 z-10"
             />
-            <pre className="text-sm font-mono bg-muted p-2 rounded whitespace-pre-wrap break-all">
-              {JSON.stringify(data, null, 2)}
+            <pre className="text-sm font-mono bg-muted p-2 rounded whitespace-pre-wrap break-all min-h-9">
+              {typeof data === 'string' ? data : JSON.stringify(data, null, 2)}
             </pre>
           </div>
         </ItemContent>

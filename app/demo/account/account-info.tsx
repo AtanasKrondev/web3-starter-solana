@@ -6,6 +6,7 @@ import { Connection, PublicKey, LAMPORTS_PER_SOL } from '@solana/web3.js';
 import { useConnection, useWallet } from '@solana/wallet-adapter-react';
 import { Skeleton } from '@/components/ui/skeleton';
 import { CopyButton } from '@/components/copy-button';
+import { DataDisplay } from '@/components/data-display';
 
 const fetchBalance = async (connection: Connection, publicKey: PublicKey) => {
   return connection.getBalance(publicKey);
@@ -157,47 +158,20 @@ export function AccountInfo() {
 
   return (
     <div className="space-y-6">
+      <DataDisplay title={'Account address'} data={publicKey?.toString()} />
+      <DataDisplay
+        title="Account balance (SOL)"
+        data={typeof balance === 'number' ? balance / LAMPORTS_PER_SOL : '-'}
+      />
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div className="space-y-2">
-          <h3 className="text-md font-semibold">Wallet</h3>
-          <div className="text-sm">
-            {publicKey ? (
-              <div className="font-mono break-all">{publicKey.toBase58()}</div>
-            ) : (
-              <div className="text-muted-foreground">Not connected</div>
-            )}
-          </div>
-
           <div className="flex gap-2 pt-2">
-            {!publicKey ? (
-              <button
-                className="btn"
-                onClick={() =>
-                  wallet.connect().catch(() => setStatus('Connection failed'))
-                }
-              >
-                Connect
-              </button>
-            ) : (
-              <>
-                <button
-                  className="btn"
-                  onClick={() =>
-                    wallet
-                      .disconnect()
-                      .catch(() => setStatus('Disconnect failed'))
-                  }
-                >
-                  Disconnect
-                </button>
-                <button className="btn" onClick={handleSignMessage}>
-                  Sign Message
-                </button>
-                <button className="btn" onClick={handleAirdrop}>
-                  Request Airdrop (1 SOL)
-                </button>
-              </>
-            )}
+            <button className="btn" onClick={handleSignMessage}>
+              Sign Message
+            </button>
+            <button className="btn" onClick={handleAirdrop}>
+              Request Airdrop (1 SOL)
+            </button>
           </div>
 
           {publicKey ? (
@@ -255,48 +229,6 @@ export function AccountInfo() {
                 {(lookupBalance / LAMPORTS_PER_SOL).toFixed(4)} SOL
               </div>
             ) : null}
-          </div>
-        </div>
-
-        <div className="space-y-2">
-          <h3 className="text-md font-semibold">Balance</h3>
-          {balanceLoading ? (
-            <Skeleton className="h-6 w-48" />
-          ) : balanceError ? (
-            <div className="text-destructive">
-              Error:{' '}
-              {(balanceError as Error)?.message ?? 'Failed to fetch balance'}
-            </div>
-          ) : (
-            <div className="text-2xl font-mono font-bold">
-              {typeof balance === 'number'
-                ? (balance / LAMPORTS_PER_SOL).toFixed(4)
-                : '-'}{' '}
-              SOL
-            </div>
-          )}
-
-          <div className="pt-2">
-            <h3 className="text-md font-semibold">Account Info</h3>
-            {accountInfoLoading ? (
-              <Skeleton className="h-6 w-full" />
-            ) : accountInfoError ? (
-              <div className="text-destructive">
-                Error:{' '}
-                {(accountInfoError as Error)?.message ??
-                  'Failed to fetch account info'}
-              </div>
-            ) : (
-              <div className="relative">
-                <CopyButton
-                  text={JSON.stringify(accountInfo, null, 2)}
-                  className="absolute top-2 right-2 z-10"
-                />
-                <pre className="text-sm font-mono bg-muted p-2 rounded whitespace-pre-wrap break-all">
-                  {JSON.stringify(accountInfo, null, 2)}
-                </pre>
-              </div>
-            )}
           </div>
         </div>
       </div>
