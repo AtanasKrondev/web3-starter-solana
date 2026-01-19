@@ -1,4 +1,7 @@
 import { AccountInfo } from '@/app/demo/account/account-info';
+import { RequestAirdrop } from '@/app/demo/account/request-airdrop';
+import { SignMessage } from '@/app/demo/account/sign-message';
+import { LookupBalance } from '@/app/demo/account/lookup-balance';
 import { ConnectButton } from '@/components/connect-button';
 import { Connected } from '@/components/connected';
 
@@ -11,9 +14,14 @@ export default function AccountPage() {
           View and interact with your connected wallet account.
         </span>
       </div>
-      <Connected fallback={<ConnectButton />}>
-        <AccountInfo />
-      </Connected>
+      <div className="space-y-6">
+        <Connected fallback={<ConnectButton />}>
+          <AccountInfo />
+          <RequestAirdrop />
+          <SignMessage />
+          <LookupBalance />
+        </Connected>
+      </div>
     </div>
   );
 }
