@@ -8,14 +8,12 @@ import {
   Item,
   ItemActions,
   ItemContent,
-  ItemDescription,
   ItemHeader,
 } from '@/components/ui/item';
 import { Skeleton } from '@/components/ui/skeleton';
 import { ButtonGroup } from '@/components/ui/button-group';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
-import { DataDisplay } from '@/components/data-display';
 import { CopyButton } from '@/components/copy-button';
 
 const fetchBalance = async (connection: Connection, publicKey: PublicKey) => {
@@ -79,7 +77,9 @@ export function LookupBalance() {
             >
               Clear
             </Button>
-            <Button onClick={handleLookup}>Lookup</Button>
+            <Button onClick={handleLookup} disabled={!lookupInput.trim()}>
+              Lookup
+            </Button>
           </ButtonGroup>
         </ItemActions>
         {lookupBalanceLoading ? (

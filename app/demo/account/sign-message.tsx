@@ -33,11 +33,7 @@ export function SignMessage() {
     }
 
     try {
-      const text =
-        messageInput && messageInput.trim().length > 0
-          ? messageInput
-          : 'Sign this message to authenticate';
-      const message = new TextEncoder().encode(text);
+      const message = new TextEncoder().encode(messageInput.trim());
       const signature = await wallet.signMessage(message);
       setStatus(
         `Message signed: ${Buffer.from(signature)
@@ -59,7 +55,9 @@ export function SignMessage() {
             value={messageInput}
             onChange={(e) => setMessageInput(e.target.value)}
           />
-          <Button onClick={handleSignMessage}>Sign</Button>
+          <Button onClick={handleSignMessage} disabled={!messageInput.trim()}>
+            Sign
+          </Button>
         </ButtonGroup>
       </ItemActions>
 
