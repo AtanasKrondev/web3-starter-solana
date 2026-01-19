@@ -31,7 +31,7 @@ export function DataDisplay({
               }
               className="absolute top-1 right-1 z-10"
             />
-            <pre className="text-sm font-mono bg-muted p-2 rounded whitespace-pre-wrap break-all min-h-9">
+            <pre className="text-sm font-mono bg-muted p-2 rounded whitespace-pre-wrap break-all min-h-9 pr-8">
               {typeof data === 'string' ? data : JSON.stringify(data, null, 2)}
             </pre>
           </div>

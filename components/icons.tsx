@@ -27,6 +27,8 @@ import {
   ToyBrick,
   LogOut,
   Wallet,
+  ArrowUp,
+  ArrowDown,
 } from 'lucide-react';
 
 export type Icon = LucideIcon;
@@ -56,6 +58,7 @@ export const Icons = {
     </svg>
   ),
   check: Check,
+  alert: AlertTriangle,
   copy: Copy,
   copyDone: ClipboardCheck,
   sun: SunMedium,
@@ -71,4 +74,6 @@ export const Icons = {
   ),
   logout: LogOut,
   wallet: Wallet,
+  up: ArrowUp,
+  down: ArrowDown,
 };

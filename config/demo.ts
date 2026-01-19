@@ -11,15 +11,15 @@ export const demoConfig = {
           title: 'Account',
           href: '/demo/account',
         },
+        {
+          title: 'Program',
+          href: '/demo/program',
+        },
       ],
     },
     {
       title: 'Read',
       items: [
-        {
-          title: 'Contract',
-          href: '/demo/read-contract',
-        },
         {
           title: 'Token',
           href: '/demo/token',
@@ -33,10 +33,6 @@ export const demoConfig = {
     {
       title: 'Write',
       items: [
-        {
-          title: 'Contract',
-          href: '/demo/write-contract',
-        },
         {
           title: 'Transaction',
           href: '/demo/send-tx',
