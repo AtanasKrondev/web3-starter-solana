@@ -1,3 +1,4 @@
+import { NetworkSwitch } from '@/app/demo/network/network-switch';
 import { NetworkInfo } from '@/app/demo/network/network-info';
 
 export default function NetworkPage() {
@@ -9,7 +10,10 @@ export default function NetworkPage() {
           Fetch information about the Solana network.
         </span>
       </div>
-      <NetworkInfo />
+      <div className="space-y-6">
+        <NetworkSwitch />
+        <NetworkInfo />
+      </div>
     </div>
   );
 }
