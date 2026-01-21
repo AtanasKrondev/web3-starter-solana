@@ -15,10 +15,12 @@ export function DemoSidebarNav({ items, onOpenChange }: DemoSidebarNavProps) {
   return items.length ? (
     <div className="w-full">
       {items.map((item, index) => (
-        <div key={index} className={cn('pb-8')}>
-          <h4 className="mb-1 rounded-md px-2 py-1 text-sm font-bold">
-            {item.title}
-          </h4>
+        <div key={index} className="pb-8">
+          {item.title ? (
+            <h4 className="mb-1 rounded-md px-2 py-1 text-sm font-bold">
+              {item.title}
+            </h4>
+          ) : null}
           {item.items ? (
             <DemoSidebarNavItems
               items={item.items}
@@ -82,7 +84,7 @@ type NavItem = {
 };
 
 type SidebarNavItem = {
-  title: string;
+  title?: string;
   disabled?: boolean;
   external?: boolean;
 } & (

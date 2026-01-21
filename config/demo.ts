@@ -1,7 +1,6 @@
 export const demoConfig = {
   sidebarNav: [
     {
-      title: 'Basics',
       items: [
         {
           title: 'Network',
@@ -12,30 +11,12 @@ export const demoConfig = {
           href: '/demo/account',
         },
         {
+          title: 'Transfer',
+          href: '/demo/transfer',
+        },
+        {
           title: 'Program',
           href: '/demo/program',
-        },
-      ],
-    },
-    {
-      title: 'Read',
-      items: [
-        {
-          title: 'Token',
-          href: '/demo/token',
-        },
-        {
-          title: 'Watch',
-          href: '/demo/watch',
-        },
-      ],
-    },
-    {
-      title: 'Write',
-      items: [
-        {
-          title: 'Transaction',
-          href: '/demo/send-tx',
         },
         {
           title: 'Sign',
