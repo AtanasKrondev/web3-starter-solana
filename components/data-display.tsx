@@ -18,23 +18,42 @@ export function DataDisplay({
       <ItemHeader className="font-bold text-lg">{title}</ItemHeader>
       {loading ? (
         <Skeleton className="h-6 w-64" />
-      ) : error ? (
-        <div className="text-destructive text-sm">
-          Error: {error instanceof Error ? error.message : 'Failed to fetch'}
-        </div>
       ) : (
         <ItemContent>
-          <div className="relative">
-            <CopyButton
-              text={
-                typeof data === 'string' ? data : JSON.stringify(data, null, 2)
-              }
-              className="absolute top-1 right-1 z-10"
-            />
-            <pre className="text-sm font-mono bg-muted p-2 rounded whitespace-pre-wrap break-all min-h-9 pr-8">
-              {typeof data === 'string' ? data : JSON.stringify(data, null, 2)}
-            </pre>
-          </div>
+          {error ? (
+            <div className="relative">
+              <CopyButton
+                text={
+                  error instanceof Error
+                    ? error.message
+                    : JSON.stringify(error, null, 2)
+                }
+                className="absolute top-1 right-1 z-10"
+              />
+              <pre className="text-destructive text-sm font-mono bg-muted p-2 rounded whitespace-pre-wrap break-all min-h-9 pr-8">
+                Error:{' '}
+                {error instanceof Error
+                  ? error.message
+                  : JSON.stringify(error, null, 2)}
+              </pre>
+            </div>
+          ) : (
+            <div className="relative">
+              <CopyButton
+                text={
+                  typeof data === 'string'
+                    ? data
+                    : JSON.stringify(data, null, 2)
+                }
+                className="absolute top-1 right-1 z-10"
+              />
+              <pre className="text-sm font-mono bg-muted p-2 rounded whitespace-pre-wrap break-all min-h-9 pr-8">
+                {typeof data === 'string'
+                  ? data
+                  : JSON.stringify(data, null, 2)}
+              </pre>
+            </div>
+          )}
         </ItemContent>
       )}
     </Item>
