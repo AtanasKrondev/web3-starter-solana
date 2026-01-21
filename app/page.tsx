@@ -4,13 +4,10 @@ import { siteConfig } from '@/config/site';
 import { buttonVariants } from '@/components/ui/button';
 import {
   Item,
-  ItemActions,
   ItemContent,
   ItemDescription,
-  ItemFooter,
   ItemHeader,
   ItemMedia,
-  ItemTitle,
 } from '@/components/ui/item';
 import { Icons } from '@/components/icons';
 
@@ -19,7 +16,7 @@ export default function Home() {
     <>
       <section className="container relative space-y-6 py-8 md:pb-12 md:pt-10 lg:py-32">
         <div className="container flex max-w-5xl flex-col items-center gap-4 text-center">
-          <h1 className="font-heading text-3xl sm:text-5xl md:text-6xl lg:text-7xl">
+          <h1 className="font-bold text-3xl sm:text-5xl md:text-6xl lg:text-7xl">
             {siteConfig.name}
           </h1>
           <p className="max-w-2xl leading-normal text-muted-foreground sm:text-xl sm:leading-8">
@@ -42,10 +39,10 @@ export default function Home() {
       </section>
       <section
         id="features"
-        className="container space-y-6 bg-slate-50 py-8 dark:bg-transparent md:py-12 lg:py-24"
+        className="container space-y-6 secondary py-8 md:py-12 lg:py-24"
       >
         <div className="mx-auto flex max-w-232 flex-col items-center space-y-4 text-center">
-          <h2 className="font-heading text-3xl leading-[1.1] sm:text-3xl md:text-6xl">
+          <h2 className="font-bold text-3xl leading-[1.1] sm:text-3xl md:text-6xl">
             Features
           </h2>
           <p className="max-w-[85%] leading-normal text-muted-foreground sm:text-lg sm:leading-7">
@@ -124,6 +121,26 @@ export default function Home() {
             <ItemMedia>
               <svg
                 className="size-12"
+                viewBox="0 0 291 69"
+                fill="currentColor"
+                xmlns="http://www.w3.org/2000/svg"
+                preserveAspectRatio="xMidYMid meet"
+              >
+                <path d="M0 36.53c.07 17.6 14.4 32.01 32.01 32.01a32.05 32.05 0 0032.01-32V32a13.2 13.2 0 0123.4-8.31h20.7A32.07 32.07 0 0077.2 0a32.05 32.05 0 00-32 32.01v4.52A13.2 13.2 0 0132 49.71a13.2 13.2 0 01-13.18-13.18 3.77 3.77 0 00-3.77-3.77H3.76A3.77 3.77 0 000 36.53zM122.49 68.54a32.14 32.14 0 01-30.89-23.7h20.67a13.16 13.16 0 0023.4-8.3V32A32.05 32.05 0 01167.68 0c17.43 0 31.64 14 32 31.33l.1 5.2a13.2 13.2 0 0023.4 8.31h20.7a32.07 32.07 0 01-30.91 23.7c-17.61 0-31.94-14.42-32.01-32l-.1-4.7v-.2a13.2 13.2 0 00-13.18-12.81 13.2 13.2 0 00-13.18 13.18v4.52a32.05 32.05 0 01-32.01 32.01zM247.94 23.7a13.16 13.16 0 0123.4 8.31 3.77 3.77 0 003.77 3.77h11.3a3.77 3.77 0 003.76-3.77A32.05 32.05 0 00258.16 0a32.07 32.07 0 00-30.92 23.7h20.7z" />
+              </svg>
+            </ItemMedia>
+            <ItemHeader className="font-bold text-[16px]">SWR</ItemHeader>
+            <ItemContent>
+              <ItemDescription>
+                A minimal API with built-in caching, revalidation, and request
+                deduplication.
+              </ItemDescription>
+            </ItemContent>
+          </Item>
+          <Item variant="outline">
+            <ItemMedia>
+              <svg
+                className="size-12"
                 width="24"
                 height="24"
                 viewBox="0 0 101 88"
@@ -154,7 +171,7 @@ export default function Home() {
             </ItemContent>
           </Item>
         </div>
-        <div className="mx-auto text-center md:max-w-[58rem]">
+        <div className="mx-auto text-center md:max-w-232">
           <p className="leading-normal text-muted-foreground sm:text-lg sm:leading-7">
             The starter also includes UX-optimized demos for common use cases
             like interacting with Solana programs, sending transactions, and
@@ -164,7 +181,7 @@ export default function Home() {
       </section>
       <section id="open-source" className="container py-8 md:py-12 lg:py-24">
         <div className="mx-auto flex max-w-232 flex-col items-center justify-center gap-4 text-center">
-          <h2 className="font-heading text-3xl leading-[1.1] sm:text-3xl md:text-6xl">
+          <h2 className="text-3xl font-bold leading-[1.1] sm:text-3xl md:text-6xl">
             Proudly Open Source
           </h2>
           <p className="max-w-[85%] leading-normal text-muted-foreground sm:text-lg sm:leading-7">
