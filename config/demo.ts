@@ -22,6 +22,10 @@ export const demoConfig = {
           title: 'Sign',
           href: '/demo/sign',
         },
+        {
+          title: 'Token',
+          href: '/demo/token',
+        },
       ],
     },
   ],

@@ -1,6 +1,5 @@
 import { AccountInfo } from '@/app/demo/account/account-info';
 import { RequestAirdrop } from '@/app/demo/account/request-airdrop';
-import { SignMessage } from '@/app/demo/account/sign-message';
 import { LookupBalance } from '@/app/demo/account/lookup-balance';
 import { LookupTokenBalances } from '@/app/demo/account/lookup-token-balances';
 import { ConnectButton } from '@/components/connect-button';
@@ -19,7 +18,6 @@ export default function AccountPage() {
         <Connected fallback={<ConnectButton />}>
           <AccountInfo />
           <RequestAirdrop />
-          <SignMessage />
           <LookupBalance />
           <LookupTokenBalances />
         </Connected>
