@@ -1,4 +1,4 @@
-import { NetworkSwitch } from '@/app/demo/network/network-switch';
+import { NetworkSwitch } from '@/components/network-switch';
 import { NetworkInfo } from '@/app/demo/network/network-info';
 
 export default function NetworkPage() {

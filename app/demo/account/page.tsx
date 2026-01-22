@@ -1,9 +1,10 @@
-import { AccountInfo } from '@/app/demo/account/account-info';
 import { RequestAirdrop } from '@/app/demo/account/request-airdrop';
 import { LookupBalance } from '@/app/demo/account/lookup-balance';
 import { LookupTokenBalances } from '@/app/demo/account/lookup-token-balances';
 import { ConnectButton } from '@/components/connect-button';
 import { Connected } from '@/components/connected';
+import { AccountAddress } from '@/components/account-address';
+import { AccountBalance } from '@/components/account-balance';
 
 export default function AccountPage() {
   return (
@@ -16,7 +17,8 @@ export default function AccountPage() {
       </div>
       <div className="space-y-6">
         <Connected fallback={<ConnectButton />}>
-          <AccountInfo />
+          <AccountAddress />
+          <AccountBalance />
           <RequestAirdrop />
           <LookupBalance />
           <LookupTokenBalances />
