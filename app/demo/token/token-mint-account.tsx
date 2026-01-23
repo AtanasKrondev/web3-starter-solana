@@ -19,7 +19,7 @@ import { DataDisplay } from '@/components/data-display';
 import { Item, ItemActions, ItemHeader } from '@/components/ui/item';
 import { Button } from '@/components/ui/button';
 
-export function TokenMint() {
+export function TokenMintAccount() {
   const { connection } = useConnection();
   const { publicKey, sendTransaction, connected } = useWallet();
 

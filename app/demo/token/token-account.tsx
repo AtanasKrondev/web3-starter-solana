@@ -19,14 +19,7 @@ import { Item, ItemActions, ItemHeader } from '@/components/ui/item';
 import { Button } from '@/components/ui/button';
 import { ButtonGroup } from '@/components/ui/button-group';
 import { Input } from '@/components/ui/input';
-
-function stringToPublicKey(address: string): PublicKey | null {
-  try {
-    return new PublicKey(address);
-  } catch {
-    return null;
-  }
-}
+import { stringToPublicKey } from '@/lib/helpers';
 
 export function TokenAccount() {
   const { connection } = useConnection();
@@ -43,7 +36,7 @@ export function TokenAccount() {
   } | null>(null);
   const [error, setError] = useState<unknown>();
 
-  const handleCreateAssociatedTokenAccount = useCallback(async () => {
+  const handleCreateAssociatedTokenAccount = async () => {
     setIsLoading(true);
     setError(null);
     setResult(null);
@@ -125,7 +118,7 @@ export function TokenAccount() {
     } finally {
       setIsLoading(false);
     }
-  }, [connection, mintInput, publicKey, sendTransaction]);
+  };
 
   return (
     <>

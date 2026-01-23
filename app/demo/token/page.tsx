@@ -1,7 +1,8 @@
 import { ConnectButton } from '@/components/connect-button';
 import { Connected } from '@/components/connected';
-import { TokenMint } from './token-mint';
+import { TokenMintAccount } from './token-mint-account';
 import { TokenAccount } from './token-account';
+import { MintTokens } from './mint-tokens';
 
 export default function TokenPage() {
   return (
@@ -14,8 +15,9 @@ export default function TokenPage() {
       </div>
       <div className="space-y-6">
         <Connected fallback={<ConnectButton />}>
-          <TokenMint />
+          <TokenMintAccount />
           <TokenAccount />
+          <MintTokens />
         </Connected>
       </div>
     </div>
