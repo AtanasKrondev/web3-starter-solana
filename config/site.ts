@@ -4,7 +4,7 @@ export const siteConfig = {
     'A starter kit for building Solana dApps optimized for user and developer experience.',
   links: {
     website: 'https://hack.bg',
-    github: 'https://github.com/hackbg/web3-starter-solana',
+    github: 'https://github.com/AtanasKrondev/web3-starter-solana',
     x: 'https://x.com/hack_bg',
   },
 };
